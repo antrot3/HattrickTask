@@ -1,0 +1,10 @@
+C:\Users\AnteRota\Desktop\HettrickZadatak\HettrickZadatak\Hettrick.Servic\obj\Debug\Hettrick.Servic.csproj.CoreCompileInputs.cache
+C:\Users\AnteRota\Desktop\HettrickZadatak\HettrickZadatak\Hettrick.Servic\bin\Debug\Hettrick.Servic.dll.config
+C:\Users\AnteRota\Desktop\HettrickZadatak\HettrickZadatak\Hettrick.Servic\bin\Debug\Hettrick.Servic.dll
+C:\Users\AnteRota\Desktop\HettrickZadatak\HettrickZadatak\Hettrick.Servic\bin\Debug\Hettrick.Servic.pdb
+C:\Users\AnteRota\Desktop\HettrickZadatak\HettrickZadatak\Hettrick.Servic\bin\Debug\EntityFramework.dll
+C:\Users\AnteRota\Desktop\HettrickZadatak\HettrickZadatak\Hettrick.Servic\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\AnteRota\Desktop\HettrickZadatak\HettrickZadatak\Hettrick.Servic\bin\Debug\EntityFramework.xml
+C:\Users\AnteRota\Desktop\HettrickZadatak\HettrickZadatak\Hettrick.Servic\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\AnteRota\Desktop\HettrickZadatak\HettrickZadatak\Hettrick.Servic\obj\Debug\Hettrick.Servic.dll
+C:\Users\AnteRota\Desktop\HettrickZadatak\HettrickZadatak\Hettrick.Servic\obj\Debug\Hettrick.Servic.pdb
