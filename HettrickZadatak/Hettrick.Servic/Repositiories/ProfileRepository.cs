@@ -10,6 +10,7 @@ namespace Hettrick.Servic.Repositiories
     public interface IProfileRepository
     {
         Profile GetProfileById(int Id);
+        Profile GetFirstUser();
     }
 
     public class ProfileRepository : IProfileRepository
@@ -23,6 +24,10 @@ namespace Hettrick.Servic.Repositiories
         public Profile GetProfileById(int Id)
         {
             return _context.Profiles.Where(x => x.Id == Id).First();
+        }
+        public Profile GetFirstUser()
+        {
+            return _context.Profiles.First();
         }
     }
 }

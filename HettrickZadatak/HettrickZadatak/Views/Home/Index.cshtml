@@ -1,31 +1,296 @@
-﻿@{
+﻿@model IEnumerable<Hettrick.Servic.Models.Entities.SportGame>
+
+@{
     ViewBag.Title = "Home Page";
+    var a = ViewBag.Categorys;
 }
+<div id="exTab1" class="container">
+    <h3> Welcome @ViewBag.Profile.Name</h3>
+    <h3> Your Accout Ballance is @ViewBag.Profile.AccountBallance</h3>
+    <ul class="nav nav-pills" style="margin-top:0%">
+        @foreach (var category in ViewBag.Categorys)
+        {
+            if (ViewBag.Categorys[0] == category)
+            {
+                <li class="active">
+                    <a href="#@category.CategoryName" data-toggle="tab"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>@category.CategoryName </a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="#@category.CategoryName" data-toggle="tab"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>@category.CategoryName</a>
+                </li>
+            }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+
+        }
+        <li>
+            <a href="#PosebnaPonuda" data-toggle="tab"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>Posebna Ponuda</a>
+        </li>
+
+    </ul>
+
+    <div class="tab-content clearfix">
+        @foreach (var category in ViewBag.Categorys)
+        {
+            if (ViewBag.Categorys[0] == category)
+            {
+                <div class="tab-pane active" id="@category.CategoryName">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Team 1</th>
+                                <th>Team 2</th>
+                                <th>Kvota 1</th>
+                                <th>Kvota 2</th>
+                                <th>Kvota 12</th>
+                                <th>Kvota 1X</th>
+                                <th>Kvota X2</th>
+                                <th>Kvota X</th>
+                                <th>Posebna ponuda</th>
+                                <th>Kvota posevne ponude</th>
+                                <th>AddToNewTicket
+                                <th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var game in Model.Where(x => x.SportCategory.CategoryName == category.CategoryName))
+                            {
+                                <tr>
+                                    <td> @game.Team1</td>
+                                    <td> @game.Team2</td>
+                                    <td>
+                                        <button class="btn-danger" id="kvota1;@game.Id;game1" @{ if (game.SportCategory.Active1 != true || game.Value1 <= 1) { @: disabled="disabled"
+                                                } }>
+                                            @game.Value1
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="btn-danger" id="kvota2;@game.Id;game2" @{ if (game.SportCategory.Active2 != true || game.Value2 <= 1) { @: disabled="disabled"
+                                                } }>
+                                            @game.Value2
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="btn-danger" id="kvota12;@game.Id;game12" @{ if (game.SportCategory.Active12 != true || game.Value12 <= 1) { @: disabled="disabled"
+                                                } }>
+                                            @game.Value12
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="btn-danger" id="kvota1;@game.Id;game1X" @{ if (game.SportCategory.Active1x != true || game.Value1X <= 1) { @: disabled="disabled"
+                                                } }>
+                                            @game.Value1X
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="btn-danger" id="kvota1;@game.Id;game2X" @{ if (game.SportCategory.Active2x != true || game.Value2X <= 1) { @: disabled="disabled"
+                                                } }>
+                                            @game.Value2X
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="btn-danger" id="kvota1;@game.Id;gameX" @{ if (game.SportCategory.ActiveX != true || game.ValueX <= 1) { @: disabled="disabled"
+                                                } }>
+                                            @game.ValueX
+                                        </button>
+                                    </td>
+                                    <td> @game.TopOffer</td>
+                                    <td> @game.TopOfferFactor</td>
+                                    <td>Add To Ticket
+                                    <td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="tab-pane" id="@category.CategoryName">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Team 1</th>
+                                <th>Team 2</th>
+                                <th>Kvota 1</th>
+                                <th>Kvota 2</th>
+                                <th>Kvota 12</th>
+                                <th>Kvota 1X</th>
+                                <th>Kvota X2</th>
+                                <th>Kvota X</th>
+                                <th>Posebna ponuda</th>
+                                <th>Kvota posevne ponude</th>
+                                <th>AddToNewTicket
+                                <th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var game in Model.Where(x => x.SportCategory.CategoryName == category.CategoryName))
+                            {
+                                <tr>
+                                    <td> @game.Team1</td>
+                                    <td> @game.Team2</td>
+                                    <td>
+                                        <button class="btn-danger" id="kvota1;@game.Id;game1" @{ if (game.SportCategory.Active1 != true || game.Value1 <= 1) { @: disabled="disabled"
+                                                } }>
+                                            @game.Value1
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="btn-danger" id="kvota2;@game.Id;game2" @{ if (game.SportCategory.Active2 != true || game.Value2 <= 1) { @: disabled="disabled"
+                                                } }>
+                                            @game.Value2
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="btn-danger" id="kvota12;@game.Id;game12" @{ if (game.SportCategory.Active12 != true || game.Value12 <= 1) { @: disabled="disabled"
+                                                } }>
+                                            @game.Value12
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="btn-danger" id="kvota1;@game.Id;game1X" @{ if (game.SportCategory.Active1x != true || game.Value1X <= 1) { @: disabled="disabled"
+                                                } }>
+                                            @game.Value1X
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="btn-danger" id="kvota1;@game.Id;game2X" @{ if (game.SportCategory.Active2x != true || game.Value2X <= 1) { @: disabled="disabled"
+                                                } }>
+                                            @game.Value2X
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="btn-danger" id="kvota1;@game.Id;gameX" @{ if (game.SportCategory.ActiveX != true || game.ValueX <= 1) { @: disabled="disabled"
+                                                } }>
+                                            @game.ValueX
+                                        </button>
+                                    </td>
+                                    <td> @game.TopOffer</td>
+                                    <td> @game.TopOfferFactor</td>
+                                    <td>Add To Ticket
+                                    <td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+            }
+
+        }
+        <div class="tab-pane" id="PosebnaPonuda">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Team 1</th>
+                        <th>Team 2</th>
+                        <th>Kvota 1</th>
+                        <th>Kvota 2</th>
+                        <th>Kvota 12</th>
+                        <th>Kvota 1X</th>
+                        <th>Kvota X2</th>
+                        <th>Kvota X</th>
+                        <th>Posebna ponuda</th>
+                        <th>Kvota posevne ponude</th>
+                        <th>AddToNewTicket
+                        <th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var game in Model.Where(x => x.TopOffer == true))
+                    {
+                        <tr>
+                            <td> @game.Team1</td>
+                            <td> @game.Team2</td>
+                            <td>
+                                <button class="btn-danger" id="kvota1;@game.Id;game1" @{ if (game.SportCategory.Active1 != true || game.Value1 <= 1) { @: disabled="disabled"
+                                        } }>
+                                    @game.Value1
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn-danger" id="kvota2;@game.Id;game2" @{ if (game.SportCategory.Active2 != true || game.Value2 <= 1) { @: disabled="disabled"
+                                        } }>
+                                    @game.Value2
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn-danger" id="kvota12;@game.Id;game12" @{ if (game.SportCategory.Active12 != true || game.Value12 <= 1) { @: disabled="disabled"
+                                        } }>
+                                    @game.Value12
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn-danger" id="kvota1;@game.Id;game1X" @{ if (game.SportCategory.Active1x != true || game.Value1X <= 1) { @: disabled="disabled"
+                                        } }>
+                                    @game.Value1X
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn-danger" id="kvota1;@game.Id;game2X" @{ if (game.SportCategory.Active2x != true || game.Value2X <= 1) { @: disabled="disabled"
+                                        } }>
+                                    @game.Value2X
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn-danger" id="kvota1;@game.Id;gameX" @{ if (game.SportCategory.ActiveX != true || game.ValueX <= 1) { @: disabled="disabled"
+                                        } }>
+                                    @game.ValueX
+                                </button>
+                            </td>
+                            <td> @game.TopOffer</td>
+                            <td> @game.TopOfferFactor</td>
+                            <td>Add To Ticket
+                            <td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+<table>
+    <tr>
+        <td></td>
+    </tr>
+</table>
+<style>
+    ody {
+        padding: 10px;
+    }
+
+    #exTab1 .tab-content {
+        color: white;
+        background-color: #428bca;
+        padding: 5px 15px;
+    }
+
+    #exTab2 h3 {
+        color: white;
+        background-color: #428bca;
+        padding: 5px 15px;
+    }
+
+    /* remove border radius for the tab */
+
+    #exTab1 .nav-pills > li > a {
+        border-radius: 0;
+    }
+
+    /* change border radius for the tab , apply corners on top*/
+
+    #exTab3 .nav-pills > li > a {
+        border-radius: 4px 4px 0 0;
+    }
+
+    #exTab3 .tab-content {
+        color: white;
+        background-color: #428bca;
+        padding: 5px 15px;
+    }
+</style>

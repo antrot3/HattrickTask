@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="DatabaseIntialization\HettrickDatabaseInitialization.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entities\Profile.cs" />
     <Compile Include="Models\Entities\SportCategory.cs" />
     <Compile Include="Models\Entities\SportGame.cs" />

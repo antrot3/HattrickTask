@@ -8,3 +8,4 @@ C:\Users\AnteRota\Desktop\HettrickZadatak\HettrickZadatak\Hettrick.Servic\bin\De
 C:\Users\AnteRota\Desktop\HettrickZadatak\HettrickZadatak\Hettrick.Servic\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\AnteRota\Desktop\HettrickZadatak\HettrickZadatak\Hettrick.Servic\obj\Debug\Hettrick.Servic.dll
 C:\Users\AnteRota\Desktop\HettrickZadatak\HettrickZadatak\Hettrick.Servic\obj\Debug\Hettrick.Servic.pdb
+C:\Users\AnteRota\Desktop\HettrickZadatak\HettrickZadatak\Hettrick.Servic\obj\Debug\Hettrick.Servic.csprojResolveAssemblyReference.cache

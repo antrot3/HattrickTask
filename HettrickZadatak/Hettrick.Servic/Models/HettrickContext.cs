@@ -22,6 +22,7 @@ using Hettrick.Servic.Models.Entities;
         public HettrickContext():base("name=HettricContextConnectionString")
         {
             System.Data.Entity.Database.SetInitializer(new Hettrick.Servic.DatabaseIntialization.HettrickDatabaseInitialization());
+            Database.Initialize(true);
         }
 
 

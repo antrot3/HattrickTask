@@ -11,6 +11,7 @@ namespace Hettrick.Servic.Repositiories
     public interface ISportCategoryRepository
     {
         SportCategory GetSportCategoryById(int Id);
+        IEnumerable<SportCategory> GetAllSportCategory();
     }
 
     public class SportCategoryRepository : ISportCategoryRepository
@@ -24,6 +25,10 @@ namespace Hettrick.Servic.Repositiories
         public SportCategory GetSportCategoryById(int Id)
         {
             return _context.SportCategorys.Where(x => x.Id == Id).First();
+        }
+        public IEnumerable<SportCategory> GetAllSportCategory()
+        {
+            return _context.SportCategorys;
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Hettrick.Servic.Repositiories
     public interface ISportGameRepository
     {
         SportGame GetSportGameById(int Id);
+        IEnumerable<SportGame> GetAllSportGames();
     }
 
     public class SportGameRepository : ISportGameRepository
@@ -24,6 +25,11 @@ namespace Hettrick.Servic.Repositiories
         public SportGame GetSportGameById(int Id)
         {
             return _context.SportGames.Where(x => x.Id == Id).First();
+        }
+        public IEnumerable<SportGame> GetAllSportGames()
+        {
+
+            return _context.SportGames;
         }
     }
 }

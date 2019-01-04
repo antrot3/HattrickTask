@@ -13,7 +13,7 @@ namespace Hettrick.Servic.Models.Entities
         [Key]
         public int Id { get; set; }
         public int SportGameID { get; set; }
-        public int TickedId { get; set; }
+        public int TicketId { get; set; }
         public double KvotaPara { get; set; }
         public string SelectedValue { get; set; }
 

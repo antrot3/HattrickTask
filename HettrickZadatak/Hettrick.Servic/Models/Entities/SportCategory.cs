@@ -11,7 +11,7 @@ namespace Hettrick.Servic.Models.Entities
     {
         [Key]
         public int Id { get; set; }
-        public string KategoryName { get; set; }
+        public string CategoryName { get; set; }
         public bool Active1 { get; set; }
         public bool Active1x { get; set; }
         public bool Active2x { get; set; }
