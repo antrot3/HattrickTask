@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HettrickZadatak", "HettrickZadatak\HettrickZadatak.csproj", "{C12B600A-86E8-4790-9CDD-0DDBC213B422}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HattrickZadatak", "HettrickZadatak\HattrickZadatak.csproj", "{C12B600A-86E8-4790-9CDD-0DDBC213B422}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hettrick.Servic", "Hettrick.Servic\Hettrick.Servic.csproj", "{3997BCD4-4FB5-4509-BC8B-7BFAB7D58DB9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hattrick.Servic", "Hettrick.Servic\Hattrick.Servic.csproj", "{3997BCD4-4FB5-4509-BC8B-7BFAB7D58DB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

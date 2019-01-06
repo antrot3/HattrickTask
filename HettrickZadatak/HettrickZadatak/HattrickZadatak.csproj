@@ -185,7 +185,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -228,9 +230,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Hettrick.Servic\Hettrick.Servic.csproj">
+    <ProjectReference Include="..\Hettrick.Servic\Hattrick.Servic.csproj">
       <Project>{3997bcd4-4fb5-4509-bc8b-7bfab7d58db9}</Project>
-      <Name>Hettrick.Servic</Name>
+      <Name>Hattrick.Servic</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

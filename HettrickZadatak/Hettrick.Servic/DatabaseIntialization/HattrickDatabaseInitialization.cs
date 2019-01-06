@@ -4,14 +4,14 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Hettrick.Servic.Models;
-using Hettrick.Servic.Models.Entities;
+using Hattrick.Servic.Models;
+using Hattrick.Servic.Models.Entities;
 
-namespace Hettrick.Servic.DatabaseIntialization
+namespace Hattrick.Servic.DatabaseIntialization
 {
-    public class HettrickDatabaseInitialization : CreateDatabaseIfNotExists<Hettrick.Servic.Models.HettrickContext>
+    public class HattrickDatabaseInitialization : CreateDatabaseIfNotExists<Hattrick.Servic.Models.HattrickContext>
     {
-        protected override void Seed(HettrickContext context)
+        protected override void Seed(HattrickContext context)
         {
             var sportCategorys = new List<SportCategory>
             {

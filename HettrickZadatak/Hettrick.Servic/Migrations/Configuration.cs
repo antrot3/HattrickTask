@@ -1,18 +1,18 @@
-namespace Hettrick.Servic.Migrations
+namespace Hattrick.Servic.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Hettrick.Servic.Models.HettrickContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Hattrick.Servic.Models.HattrickContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(Hettrick.Servic.Models.HettrickContext context)
+        protected override void Seed(Hattrick.Servic.Models.HattrickContext context)
         {
             //  This method will be called after migrating to the latest version.
 

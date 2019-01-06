@@ -6,14 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Hettrick.Servic.Models;
-using Hettrick.Servic.Models.Entities;
+using Hattrick.Servic.Models;
+using Hattrick.Servic.Models.Entities;
 
-namespace HettrickZadatak.Controllers
+namespace HattrickZadatak.Controllers
 {
     public class SportGamesController : Controller
     {
-        private HettrickContext db = new HettrickContext();
+        private HattrickContext db = new HattrickContext();
 
         // GET: SportGames
         public ActionResult Index()

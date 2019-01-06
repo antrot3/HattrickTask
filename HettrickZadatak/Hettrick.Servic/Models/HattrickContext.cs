@@ -4,11 +4,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Hettrick.Servic.Models.Entities;
+using Hattrick.Servic.Models.Entities;
 
- namespace Hettrick.Servic.Models
+ namespace Hattrick.Servic.Models
 {
-    public interface IHettrickContext
+    public interface IHattrickContext
     {
         IDbSet<Profile> Profiles { get; set; }
         IDbSet<SportCategory> SportCategorys { get; set; }
@@ -17,11 +17,11 @@ using Hettrick.Servic.Models.Entities;
         IDbSet<TicketToGame> TicketToGames { get; set; }
         IDbSet<Transactions> Transactions { get; set; }
     }
-     public class HettrickContext:DbContext,IHettrickContext
+     public class HattrickContext:DbContext,IHattrickContext
     {
-        public HettrickContext():base("name=HettricContextConnectionString")
+        public HattrickContext():base("name=HattricContextConnectionString")
         {
-            System.Data.Entity.Database.SetInitializer(new Hettrick.Servic.DatabaseIntialization.HettrickDatabaseInitialization());
+            System.Data.Entity.Database.SetInitializer(new Hattrick.Servic.DatabaseIntialization.HattrickDatabaseInitialization());
             Database.Initialize(true);
         }
 

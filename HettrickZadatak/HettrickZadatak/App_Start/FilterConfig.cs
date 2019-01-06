@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace HettrickZadatak
+namespace HattrickZadatak
 {
     public class FilterConfig
     {

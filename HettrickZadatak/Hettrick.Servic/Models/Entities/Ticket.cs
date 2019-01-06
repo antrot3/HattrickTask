@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hettrick.Servic.Models.Entities
+namespace Hattrick.Servic.Models.Entities
 {
     public class Ticket
     {

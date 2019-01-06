@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Hettrick.Servic.Models.Entities;
+using Hattrick.Servic.Models.Entities;
 
-namespace Hettrick.Servic.Repositiories
+namespace Hattrick.Servic.Repositiories
 {
     public interface ITicketRepository
     {
@@ -14,10 +14,10 @@ namespace Hettrick.Servic.Repositiories
 
     public class TicketRepository : ITicketRepository
     {
-        private readonly Hettrick.Servic.Models.HettrickContext _context;
+        private readonly Hattrick.Servic.Models.HattrickContext _context;
         public TicketRepository()
         {
-            _context = new Models.HettrickContext();
+            _context = new Models.HattrickContext();
         }
 
         public Ticket GetTicketById(int Id)

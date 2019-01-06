@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace HettrickZadatak
+namespace HattrickZadatak
 {
     public class BundleConfig
     {

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Hettrick.Servic.Models.Entities.SportGame>
+﻿@model IEnumerable<Hattrick.Servic.Models.Entities.SportGame>
 
 @{
     ViewBag.Title = "Home Page";
@@ -61,37 +61,37 @@
                                     <td> @game.Team1</td>
                                     <td> @game.Team2</td>
                                     <td>
-                                        <button class="btn-danger" id="kvota1;@game.Id;game1" @{ if (game.SportCategory.Active1 != true || game.Value1 <= 1) { @: disabled="disabled"
+                                        <button class="btn-success" id="1_@game.Id-0" value="1;@game.Id;@game.Value1;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active1 != true || game.Value1 <= 1) { @: disabled="disabled"
                                                 } }>
                                             @game.Value1
                                         </button>
                                     </td>
                                     <td>
-                                        <button class="btn-danger" id="kvota2;@game.Id;game2" @{ if (game.SportCategory.Active2 != true || game.Value2 <= 1) { @: disabled="disabled"
+                                        <button class="btn-success" id="2_@game.Id-0" value="2;@game.Id;@game.Value2;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active2 != true || game.Value2 <= 1) { @: disabled="disabled"
                                                 } }>
                                             @game.Value2
                                         </button>
                                     </td>
                                     <td>
-                                        <button class="btn-danger" id="kvota12;@game.Id;game12" @{ if (game.SportCategory.Active12 != true || game.Value12 <= 1) { @: disabled="disabled"
+                                        <button class="btn-success" id="12_@game.Id-0" value="12;@game.Id;@game.Value12;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active12 != true || game.Value12 <= 1) { @: disabled="disabled"
                                                 } }>
                                             @game.Value12
                                         </button>
                                     </td>
                                     <td>
-                                        <button class="btn-danger" id="kvota1;@game.Id;game1X" @{ if (game.SportCategory.Active1x != true || game.Value1X <= 1) { @: disabled="disabled"
+                                        <button class="btn-success" id="1X_@game.Id-0" value="1X;@game.Id;@game.Value1X;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active1x != true || game.Value1X <= 1) { @: disabled="disabled"
                                                 } }>
                                             @game.Value1X
                                         </button>
                                     </td>
                                     <td>
-                                        <button class="btn-danger" id="kvota1;@game.Id;game2X" @{ if (game.SportCategory.Active2x != true || game.Value2X <= 1) { @: disabled="disabled"
+                                        <button class="btn-success" id="X2_@game.Id-0" value="X2;@game.Id;@game.Value2X;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active2x != true || game.Value2X <= 1) { @: disabled="disabled"
                                                 } }>
                                             @game.Value2X
                                         </button>
                                     </td>
                                     <td>
-                                        <button class="btn-danger" id="kvota1;@game.Id;gameX" @{ if (game.SportCategory.ActiveX != true || game.ValueX <= 1) { @: disabled="disabled"
+                                        <button class="btn-success" id="X_@game.Id-0" value="X;@game.Id;@game.ValueX;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.ActiveX != true || game.ValueX <= 1) { @: disabled="disabled"
                                                 } }>
                                             @game.ValueX
                                         </button>
@@ -133,37 +133,37 @@
                                     <td> @game.Team1</td>
                                     <td> @game.Team2</td>
                                     <td>
-                                        <button class="btn-danger" id="kvota1;@game.Id;game1" @{ if (game.SportCategory.Active1 != true || game.Value1 <= 1) { @: disabled="disabled"
+                                        <button class="btn-success" id="1_@game.Id-0" value="1;@game.Id;@game.Value1;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active1 != true || game.Value1 <= 1) { @: disabled="disabled"
                                                 } }>
                                             @game.Value1
                                         </button>
                                     </td>
                                     <td>
-                                        <button class="btn-danger" id="kvota2;@game.Id;game2" @{ if (game.SportCategory.Active2 != true || game.Value2 <= 1) { @: disabled="disabled"
+                                        <button class="btn-success" id="2_@game.Id-0" value="2;@game.Id;@game.Value2;@game.Team1;@game.Team2" @{ if (game.SportCategory.Active2 != true || game.Value2 <= 1) { @: disabled="disabled"
                                                 } }>
                                             @game.Value2
                                         </button>
                                     </td>
                                     <td>
-                                        <button class="btn-danger" id="kvota12;@game.Id;game12" @{ if (game.SportCategory.Active12 != true || game.Value12 <= 1) { @: disabled="disabled"
+                                        <button class="btn-success" id="12_@game.Id-0" value="12;@game.Id;@game.Value12;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active12 != true || game.Value12 <= 1) { @: disabled="disabled"
                                                 } }>
                                             @game.Value12
                                         </button>
                                     </td>
                                     <td>
-                                        <button class="btn-danger" id="kvota1;@game.Id;game1X" @{ if (game.SportCategory.Active1x != true || game.Value1X <= 1) { @: disabled="disabled"
+                                        <button class="btn-success" id="1X_@game.Id-0" value="1X;@game.Id;@game.Value1X;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active1x != true || game.Value1X <= 1) { @: disabled="disabled"
                                                 } }>
                                             @game.Value1X
                                         </button>
                                     </td>
                                     <td>
-                                        <button class="btn-danger" id="kvota1;@game.Id;game2X" @{ if (game.SportCategory.Active2x != true || game.Value2X <= 1) { @: disabled="disabled"
+                                        <button class="btn-success" id="X2_@game.Id-0" value="X2;@game.Id;@game.Value2X;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active2x != true || game.Value2X <= 1) { @: disabled="disabled"
                                                 } }>
                                             @game.Value2X
                                         </button>
                                     </td>
                                     <td>
-                                        <button class="btn-danger" id="kvota1;@game.Id;gameX" @{ if (game.SportCategory.ActiveX != true || game.ValueX <= 1) { @: disabled="disabled"
+                                        <button class="btn-success" id="X_@game.Id-0" value="X;@game.Id;@game.ValueX;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.ActiveX != true || game.ValueX <= 1) { @: disabled="disabled"
                                                 } }>
                                             @game.ValueX
                                         </button>
@@ -206,37 +206,37 @@
                             <td> @game.Team1</td>
                             <td> @game.Team2</td>
                             <td>
-                                <button class="btn-danger" id="kvota1;@game.Id;game1" @{ if (game.SportCategory.Active1 != true || game.Value1 <= 1) { @: disabled="disabled"
+                                <button class="btn-success" id="1_@game.Id-1" value="1;@game.Id;@game.Value1;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active1 != true || game.Value1 <= 1) { @: disabled="disabled"
                                         } }>
                                     @game.Value1
                                 </button>
                             </td>
                             <td>
-                                <button class="btn-danger" id="kvota2;@game.Id;game2" @{ if (game.SportCategory.Active2 != true || game.Value2 <= 1) { @: disabled="disabled"
+                                <button class="btn-success" id="2_@game.Id-1" value="2;@game.Id;@game.Value2;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active2 != true || game.Value2 <= 1) { @: disabled="disabled"
                                         } }>
                                     @game.Value2
                                 </button>
                             </td>
                             <td>
-                                <button class="btn-danger" id="kvota12;@game.Id;game12" @{ if (game.SportCategory.Active12 != true || game.Value12 <= 1) { @: disabled="disabled"
+                                <button class="btn-success" id="12_@game.Id-1" value="12;@game.Id;@game.Value12;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active12 != true || game.Value12 <= 1) { @: disabled="disabled"
                                         } }>
                                     @game.Value12
                                 </button>
                             </td>
                             <td>
-                                <button class="btn-danger" id="kvota1;@game.Id;game1X" @{ if (game.SportCategory.Active1x != true || game.Value1X <= 1) { @: disabled="disabled"
+                                <button class="btn-success" id="1X_@game.Id-1" value="1X;@game.Id;@game.Value1X;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active1x != true || game.Value1X <= 1) { @: disabled="disabled"
                                         } }>
                                     @game.Value1X
                                 </button>
                             </td>
                             <td>
-                                <button class="btn-danger" id="kvota1;@game.Id;game2X" @{ if (game.SportCategory.Active2x != true || game.Value2X <= 1) { @: disabled="disabled"
+                                <button class="btn-success" id="X2_@game.Id-1" value="X2;@game.Id;@game.Value2X;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active2x != true || game.Value2X <= 1) { @: disabled="disabled"
                                         } }>
                                     @game.Value2X
                                 </button>
                             </td>
                             <td>
-                                <button class="btn-danger" id="kvota1;@game.Id;gameX" @{ if (game.SportCategory.ActiveX != true || game.ValueX <= 1) { @: disabled="disabled"
+                                <button class="btn-success" id="X_@game.Id-1" value="X;@game.Id;@game.ValueX;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.ActiveX != true || game.ValueX <= 1) { @: disabled="disabled"
                                         } }>
                                     @game.ValueX
                                 </button>
@@ -254,10 +254,25 @@
     </div>
 </div>
 
-<table>
-    <tr>
-        <td></td>
-    </tr>
+<h2>Ticket</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Team 1</th>
+            <th>Team 2</th>
+            <th>Selected Bet</th>
+            <th>Selected Bet Koeficient</th>
+        </tr>
+    </thead>
+    <tbody id="tabbleID"></tbody>
+    <tfoot>
+        <tr>
+            <td>Enter your bet money <input type="number" id="betValue" /> </td>
+            <td>Total Koeficient <input type="number" disabled id="koeficinet" />  </td>
+            <td>Expected Payout: <input type="number" id="expectedPayout" /></td>
+            <td><button id="submitButton">Create New Ticket</button></td>
+        </tr>
+    </tfoot>
 </table>
 <style>
     ody {
@@ -294,3 +309,57 @@
         padding: 5px 15px;
     }
 </style>
+
+<script>
+    var listOfObjects = [];
+    $('.btn-success').on('click', function () {
+        $("#" + this.id).toggleClass('btn-success btn-dannger');
+        console.log(this.id);
+        var arr = $(this).val().split(';');
+        var game = {
+            SelectedBet: arr[0],
+            GameID: arr[1],
+            BetKoeficent: arr[2],
+            Team1: arr[3],
+            Team2: arr[4],
+            PosebnaPonuda: this.id.split('-')[1],
+            FaktorPosebnePonude:arr[5]
+        }
+        var removeElement = false;
+        var newList = [];
+        var previouslySelectedBet = 0;
+        var preivouslySelectedGameID = 0;
+
+        listOfObjects.forEach(function (element) {
+            if (element.SelectedBet == game.SelectedBet && element.GameID == game.GameID && element.BetKoeficent == game.BetKoeficent && element.Team1 == game.Team1 && element.Team2 == game.Team2) {
+                removeElement = true;
+            }
+            else if (element.GameID == game.GameID) {
+                previouslySelectedBet = element.SelectedBet;
+                previouslySelectedBetID = element.GameID;
+                previouslySelectedBetTopOffer = element.PosebnaPonuda;
+                console.log("#" + previouslySelectedBet + "_" + previouslySelectedBetID);
+                $("#" + previouslySelectedBet + "_" + previouslySelectedBetID + "-" + previouslySelectedBetTopOffer).toggleClass('btn-success btn-dannger');
+            }
+            else {
+                newList.push(element);
+            }
+        });
+        listOfObjects = newList;
+        if (removeElement == false) {
+            listOfObjects.push(game);
+        }
+        $('#tabbleID').empty();
+        listOfObjects.forEach(function (element) {
+            $('#tabbleID').append("<tr><td>" + element.Team1 + "</td><td>" + element.Team2 + "</td><td>" + element.SelectedBet + "</td><td>" + element.BetKoeficent + "</td></tr>");
+        });
+        var suma = 1;
+        listOfObjects.forEach(function (element) {
+            suma *= element.BetKoeficent;
+        })
+        $("#koeficinet").val(suma.toString());
+    })
+    $("#betValue").on('change', function () {
+        $("#expectedPayout").val($("#betValue").val() * $("#koeficinet").val());
+    })
+</script>
