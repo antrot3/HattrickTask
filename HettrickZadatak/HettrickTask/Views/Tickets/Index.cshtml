@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Hattrick.Service.Models.Entities.Ticket>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tickets</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           User Name
+        </th>
+        <th>
+            Bet Money
+        </th>
+        <th>
+            Total Coeficent
+        </th>
+        <th>
+            Expected Payout
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Profile.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Payment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalCoeficient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpectedPayout)
+        </td>
+        <td>
+          <button id="getResoult" value="@item.Id;@item.ExpectedPayout">Get Resoult</button>
+           
+        </td>
+    </tr>
+    <tr>
+        <th></th>
+        <th>Team1</th>
+        <th>Team2</th>
+        <th>Selected Value</th>
+        <th>Pair Coeficient</th>
+    </tr>
+  foreach(var pair in ViewBag.ticketsToGame)
+    {
+        if(pair.TicketId==item.Id)
+        {
+    <tr>
+        <td></td>
+        <td>@pair.SportGame.Team1</td>
+        <td>@pair.SportGame.Team2</td>
+        <td>@pair.SelectedValue</td>
+        <td>@pair.KvotaPara</td>
+
+    </tr>
+        }
+
+    }
+    }
+
+
+</table>
+
+<script>
+    $("#getResoult").on('click', function () {
+        var random = Math.floor(Math.random() * 101);
+        var resolut = "Fail";
+        if (random <= 40) {
+            var resolut = "Victory";
+            alert("You won this ticket Founds will be added to your account imidietly");
+        }
+        else {
+            alert("You lost :(");
+        }
+        var ticketID = $("#getResoult").val().split(";")[0];
+        var addToAccount = $("#getResoult").val().split(";")[1];
+        location.href = '@Url.Action("GetResoult", "Tickets")?resoult=' + resolut + '&id=' + ticketID + '&addToAccount=' + addToAccount;
+
+    })
+</script>

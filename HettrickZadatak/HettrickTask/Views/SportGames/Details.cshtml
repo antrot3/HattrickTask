@@ -1,0 +1,114 @@
+﻿@model Hattrick.Service.Models.Entities.SportGame
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SportGame</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SportCategory.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SportCategory.CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Team1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Team1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Team2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Team2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Value1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Value1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Value2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Value2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Value1X)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Value1X)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Value2X)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Value2X)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Value12)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Value12)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValueX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValueX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopOffer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopOffer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopOfferFactor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopOfferFactor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
