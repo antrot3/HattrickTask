@@ -33,16 +33,25 @@ namespace HettrickZadatak.Controllers
             var obj = serializer.Deserialize<Dictionary<string, object>>(data);
             var profile = _context.Profiles.First();
             if (profile.AccountBallance < double.Parse(obj["betValue"].ToString()))
-                throw new System.ArgumentException("Not Enough money to bet");
+                throw new Exception("Not Enough money to bet");
             else
             {
                 profile.AccountBallance -= double.Parse(obj["betValue"].ToString());
             }
             _context.SaveChanges();
+
             var ticket = _ticketRepository.CreateTicket(double.Parse(obj["betValue"].ToString()), double.Parse(obj["koeficientValue"].ToString()), double.Parse(obj["expectedPayout"].ToString()));
             foreach (var test in (dynamic)obj["listOfSelectedPairs"])
             {
-                _ticketToGameRepository.CreateTicketToGame(int.Parse(test["GameID"]), ticket.Id, double.Parse(test["BetKoeficent"]), test["SelectedBet"]);
+                try
+                {
+
+                    _ticketToGameRepository.CreateTicketToGame(int.Parse(test["GameID"]), ticket.Id, double.Parse(test["BetKoeficent"]), test["SelectedBet"]);
+
+                } catch (Exception ex)
+                {
+                    throw new Exception("Cannot add Pair to ticket");
+                }
             }
 
 
@@ -67,7 +76,7 @@ namespace HettrickZadatak.Controllers
             var ticket = db.Tickets.Find(id);
             db.Tickets.Remove(ticket);
             db.SaveChanges();
-            return Redirect("Tickets/Index");
+            return Redirect("~/Tickets/Index");
         }
       
     }

@@ -6,7 +6,7 @@
 }
 <div id="exTab1" class="container">
     <h3> Welcome @ViewBag.Profile.Name</h3>
-    <h3> Your Accout Ballance is @ViewBag.Profile.AccountBallance</h3>
+    <h3> Your Accout Ballance is @ViewBag.Profile.AccountBallance KN</h3>
     <ul class="nav nav-pills" style="margin-top:0%">
         @foreach (var category in ViewBag.Categorys)
         {
@@ -26,7 +26,7 @@
 
         }
         <li>
-            <a href="#PosebnaPonuda" data-toggle="tab"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>Posebna Ponuda</a>
+            <a href="#SpecialOffer" data-toggle="tab"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>Top Offer</a>
         </li>
 
     </ul>
@@ -42,16 +42,12 @@
                             <tr>
                                 <th>Team 1</th>
                                 <th>Team 2</th>
-                                <th>Kvota 1</th>
-                                <th>Kvota 2</th>
-                                <th>Kvota 12</th>
-                                <th>Kvota 1X</th>
-                                <th>Kvota X2</th>
-                                <th>Kvota X</th>
-                                <th>Posebna ponuda</th>
-                                <th>Kvota posevne ponude</th>
-                                <th>AddToNewTicket
-                                <th>
+                                <th>Coeficient 1</th>
+                                <th>Coeficient X</th>
+                                <th>Coeficient 2</th>
+                                <th>Coeficient 12</th>
+                                <th>Coeficient 1X</th>
+                                <th>Coeficient X2</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -64,6 +60,13 @@
                                         <button class="btn-success" id="1_@game.Id-0" value="1;@game.Id;@game.Value1;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active1 != true || game.Value1 <= 1) { @: disabled="disabled"
                                                 } }>
                                             @game.Value1
+                                        </button>
+                                    </td>
+
+                                    <td>
+                                        <button class="btn-success" id="X_@game.Id-0" value="X;@game.Id;@game.ValueX;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.ActiveX != true || game.ValueX <= 1) { @: disabled="disabled"
+                                                } }>
+                                            @game.ValueX
                                         </button>
                                     </td>
                                     <td>
@@ -90,16 +93,6 @@
                                             @game.Value2X
                                         </button>
                                     </td>
-                                    <td>
-                                        <button class="btn-success" id="X_@game.Id-0" value="X;@game.Id;@game.ValueX;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.ActiveX != true || game.ValueX <= 1) { @: disabled="disabled"
-                                                } }>
-                                            @game.ValueX
-                                        </button>
-                                    </td>
-                                    <td> @game.TopOffer</td>
-                                    <td> @game.TopOfferFactor</td>
-                                    <td>Add To Ticket
-                                    <td>
                                 </tr>
                             }
                         </tbody>
@@ -114,16 +107,12 @@
                             <tr>
                                 <th>Team 1</th>
                                 <th>Team 2</th>
-                                <th>Kvota 1</th>
-                                <th>Kvota 2</th>
-                                <th>Kvota 12</th>
-                                <th>Kvota 1X</th>
-                                <th>Kvota X2</th>
-                                <th>Kvota X</th>
-                                <th>Posebna ponuda</th>
-                                <th>Kvota posevne ponude</th>
-                                <th>AddToNewTicket
-                                <th>
+                                <th>Coeficient 1</th>
+                                <th>Coeficient X</th>
+                                <th>Coeficient 2</th>
+                                <th>Coeficient 12</th>
+                                <th>Coeficient 1X</th>
+                                <th>Coeficient X2</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -136,6 +125,13 @@
                                         <button class="btn-success" id="1_@game.Id-0" value="1;@game.Id;@game.Value1;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active1 != true || game.Value1 <= 1) { @: disabled="disabled"
                                                 } }>
                                             @game.Value1
+                                        </button>
+                                    </td>
+
+                                    <td>
+                                        <button class="btn-success" id="X_@game.Id-0" value="X;@game.Id;@game.ValueX;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.ActiveX != true || game.ValueX <= 1) { @: disabled="disabled"
+                                                } }>
+                                            @game.ValueX
                                         </button>
                                     </td>
                                     <td>
@@ -162,16 +158,6 @@
                                             @game.Value2X
                                         </button>
                                     </td>
-                                    <td>
-                                        <button class="btn-success" id="X_@game.Id-0" value="X;@game.Id;@game.ValueX;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.ActiveX != true || game.ValueX <= 1) { @: disabled="disabled"
-                                                } }>
-                                            @game.ValueX
-                                        </button>
-                                    </td>
-                                    <td> @game.TopOffer</td>
-                                    <td> @game.TopOfferFactor</td>
-                                    <td>Add To Ticket
-                                    <td>
                                 </tr>
                             }
                         </tbody>
@@ -181,22 +167,18 @@
             }
 
         }
-        <div class="tab-pane" id="PosebnaPonuda">
+        <div class="tab-pane" id="SpecialOffer">
             <table class="table">
                 <thead>
                     <tr>
                         <th>Team 1</th>
                         <th>Team 2</th>
-                        <th>Kvota 1</th>
-                        <th>Kvota 2</th>
-                        <th>Kvota 12</th>
-                        <th>Kvota 1X</th>
-                        <th>Kvota X2</th>
-                        <th>Kvota X</th>
-                        <th>Posebna ponuda</th>
-                        <th>Kvota posevne ponude</th>
-                        <th>AddToNewTicket
-                        <th>
+                        <th>Coeficient 1</th>
+                        <th>Coeficient X</th>
+                        <th>Coeficient 2</th>
+                        <th>Coeficient 12</th>
+                        <th>Coeficient 1X</th>
+                        <th>Coeficient X2</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -208,43 +190,41 @@
                             <td>
                                 <button class="btn-success" id="1_@game.Id-1" value="1;@game.Id;@game.Value1;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active1 != true || game.Value1 <= 1) { @: disabled="disabled"
                                         } }>
-                                    @game.Value1
-                                </button>
-                            </td>
-                            <td>
-                                <button class="btn-success" id="2_@game.Id-1" value="2;@game.Id;@game.Value2;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active2 != true || game.Value2 <= 1) { @: disabled="disabled"
-                                        } }>
-                                    @game.Value2
-                                </button>
-                            </td>
-                            <td>
-                                <button class="btn-success" id="12_@game.Id-1" value="12;@game.Id;@game.Value12;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active12 != true || game.Value12 <= 1) { @: disabled="disabled"
-                                        } }>
-                                    @game.Value12
-                                </button>
-                            </td>
-                            <td>
-                                <button class="btn-success" id="1X_@game.Id-1" value="1X;@game.Id;@game.Value1X;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active1x != true || game.Value1X <= 1) { @: disabled="disabled"
-                                        } }>
-                                    @game.Value1X
-                                </button>
-                            </td>
-                            <td>
-                                <button class="btn-success" id="X2_@game.Id-1" value="X2;@game.Id;@game.Value2X;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active2x != true || game.Value2X <= 1) { @: disabled="disabled"
-                                        } }>
-                                    @game.Value2X
+                                    @(game.Value1 * game.TopOfferFactor)
                                 </button>
                             </td>
                             <td>
                                 <button class="btn-success" id="X_@game.Id-1" value="X;@game.Id;@game.ValueX;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.ActiveX != true || game.ValueX <= 1) { @: disabled="disabled"
                                         } }>
-                                    @game.ValueX
+                                    @(game.ValueX * game.TopOfferFactor)
                                 </button>
                             </td>
-                            <td> @game.TopOffer</td>
-                            <td> @game.TopOfferFactor</td>
-                            <td>Add To Ticket
                             <td>
+                                <button class="btn-success" id="2_@game.Id-1" value="2;@game.Id;@game.Value2;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active2 != true || game.Value2 <= 1) { @: disabled="disabled"
+                                        } }>
+                                    @(game.Value2 * game.TopOfferFactor)
+                                </button>
+                            </td>
+
+                            <td>
+                                <button class="btn-success" id="12_@game.Id-1" value="12;@game.Id;@game.Value12;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active12 != true || game.Value12 <= 1) { @: disabled="disabled"
+                                        } }>
+                                    @(game.Value12 * game.TopOfferFactor)
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn-success" id="1X_@game.Id-1" value="1X;@game.Id;@game.Value1X;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active1x != true || game.Value1X <= 1) { @: disabled="disabled"
+                                        } }>
+                                    @(game.Value1X * game.TopOfferFactor)
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn-success" id="X2_@game.Id-1" value="X2;@game.Id;@game.Value2X;@game.Team1;@game.Team2;@game.TopOfferFactor" @{ if (game.SportCategory.Active2x != true || game.Value2X <= 1) { @: disabled="disabled"
+                                        } }>
+                                    @(game.Value2X * game.TopOfferFactor)
+                                </button>
+                            </td>
+
                         </tr>
                     }
                 </tbody>
@@ -314,7 +294,6 @@
     var listOfObjects = [];
     $('.btn-success').on('click', function () {
         $("#" + this.id).toggleClass('btn-success btn-dannger');
-        console.log(this.id);
         var arr = $(this).val().split(';');
         var game = {
             SelectedBet: arr[0],
@@ -322,24 +301,41 @@
             BetKoeficent: arr[2],
             Team1: arr[3],
             Team2: arr[4],
-            PosebnaPonuda: this.id.split('-')[1],
+            SpecialOffer: this.id.split('-')[1],
             FaktorPosebnePonude: arr[5]
         }
         var removeElement = false;
         var newList = [];
         var previouslySelectedBet = 0;
         var preivouslySelectedGameID = 0;
+        var razlikaUPosebnojPonudi = false;
+        var temp = game;
+        var brojac = 0;
+        if (game.SpecialOffer == 1)
+            game.BetKoeficent = game.BetKoeficent * game.FaktorPosebnePonude;
+        if (game.SpecialOffer == 1) {
+            listOfObjects.forEach(function (element) {
+                if (element.BetKoeficent >= 1.1) {
+                    brojac++
+                }
+            })
+        }
+        if (brojac < 5 && game.SpecialOffer==1) {
+            alert("For Special Offers you need To have atlest 5 pairs with coeficient 1.1 or moe")
+            removeElement = true;
+            $("#" + this.id).toggleClass('btn-success btn-dannger');
+        }
 
         listOfObjects.forEach(function (element) {
-            if (element.SelectedBet == game.SelectedBet && element.GameID == game.GameID && element.BetKoeficent == game.BetKoeficent && element.Team1 == game.Team1 && element.Team2 == game.Team2) {
+            if (element.SelectedBet == game.SelectedBet && element.GameID == game.GameID && element.BetKoeficent == game.BetKoeficent && element.Team1 == game.Team1 && element.Team2 == game.Team2 && element.SpecialOffer == game.SpecialOffer) {
                 removeElement = true;
             }
             else if (element.GameID == game.GameID) {
                 previouslySelectedBet = element.SelectedBet;
                 previouslySelectedBetID = element.GameID;
-                previouslySelectedBetTopOffer = element.PosebnaPonuda;
+                previouslySelectedBetTopOffer = element.SpecialOffer;
                 console.log("#" + previouslySelectedBet + "_" + previouslySelectedBetID);
-                $("#" + previouslySelectedBet + "_" + previouslySelectedBetID + "-" + previouslySelectedBetTopOffer).toggleClass('btn-success btn-dannger');
+                    $("#" + previouslySelectedBet + "_" + previouslySelectedBetID + "-" + previouslySelectedBetTopOffer).toggleClass('btn-success btn-dannger');
             }
             else {
                 newList.push(element);
@@ -349,6 +345,7 @@
         if (removeElement == false) {
             listOfObjects.push(game);
         }
+
         $('#tabbleID').empty();
         listOfObjects.forEach(function (element) {
             $('#tabbleID').append("<tr><td>" + element.Team1 + "</td><td>" + element.Team2 + "</td><td>" + element.SelectedBet + "</td><td>" + element.BetKoeficent + "</td></tr>");

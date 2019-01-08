@@ -75,9 +75,9 @@
 <script>
     $("#getResoult").on('click', function () {
         var random = Math.floor(Math.random() * 101);
-        var resolut = "Fail";
+        var resoult = "Fail";
         if (random <= 40) {
-            var resolut = "Victory";
+            var resoult = "Victory";
             alert("You won this ticket Founds will be added to your account imidietly");
         }
         else {
@@ -85,7 +85,7 @@
         }
         var ticketID = $("#getResoult").val().split(";")[0];
         var addToAccount = $("#getResoult").val().split(";")[1];
-        location.href = '@Url.Action("GetResoult", "Tickets")?resoult=' + resolut + '&id=' + ticketID + '&addToAccount=' + addToAccount;
+        location.href = '@Url.Action("GetResoult", "Tickets")?resoult=' + resoult + '&id=' + ticketID + '&addToAccount=' + addToAccount;
 
     })
 </script>
