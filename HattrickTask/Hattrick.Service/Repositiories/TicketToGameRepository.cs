@@ -11,7 +11,7 @@ namespace Hattrick.Service.Repositiories
     public interface ITicketToGameRepository
     {
         TicketToGame GetTicketToGameById(int Id);
-        TicketToGame CreateTicketToGame(int sportGameID, int ticketId, double kvotaPara, string selectedValue);
+        TicketToGame CreateTicketToGame(int sportGameID, int ticketId, double pairCoeficient, string selectedValue);
     }
 
     public class TicketToGameRepository : ITicketToGameRepository
@@ -27,12 +27,12 @@ namespace Hattrick.Service.Repositiories
         {
             return _context.TicketToGames.Where(x => x.Id == Id).First();
         }
-        public TicketToGame CreateTicketToGame(int sportGameID, int ticketId, double kvotaPara, string selectedValue)
+        public TicketToGame CreateTicketToGame(int sportGameID, int ticketId, double pairCoeficient, string selectedValue)
         {
             var ticketToGame = new TicketToGame();
             ticketToGame.SportGameID = sportGameID;
             ticketToGame.SelectedValue = selectedValue;
-            ticketToGame.KvotaPara = kvotaPara;
+            ticketToGame.PairCoeficient = pairCoeficient;
             ticketToGame.TicketId = ticketId;
             _context.TicketToGames.Add(ticketToGame);
             _context.SaveChanges();

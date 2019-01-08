@@ -14,7 +14,7 @@ namespace Hattrick.Service.Models.Entities
         public int Id { get; set; }
         public int SportGameID { get; set; }
         public int TicketId { get; set; }
-        public double KvotaPara { get; set; }
+        public double PairCoeficient { get; set; }
         public string SelectedValue { get; set; }
 
         [ForeignKey("SportGameID")]
