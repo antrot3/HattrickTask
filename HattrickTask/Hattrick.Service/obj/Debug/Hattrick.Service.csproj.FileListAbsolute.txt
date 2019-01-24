@@ -28,3 +28,4 @@ C:\Users\AnteRota\Desktop\HettrickZadatak\HattrickTask\Hattrick.Service\bin\Debu
 C:\Users\AnteRota\Desktop\HettrickZadatak\HattrickTask\Hattrick.Service\obj\Debug\Hattrick.Service.csproj.CoreCompileInputs.cache
 C:\Users\AnteRota\Desktop\HettrickZadatak\HattrickTask\Hattrick.Service\obj\Debug\Hettrick.Servic.dll
 C:\Users\AnteRota\Desktop\HettrickZadatak\HattrickTask\Hattrick.Service\obj\Debug\Hettrick.Servic.pdb
+C:\Users\AnteRota\Desktop\HettrickZadatak\HattrickTask\Hattrick.Service\obj\Debug\Hattrick.Service.csprojResolveAssemblyReference.cache

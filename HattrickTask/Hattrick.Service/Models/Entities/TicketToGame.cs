@@ -12,12 +12,12 @@ namespace Hattrick.Service.Models.Entities
     {
         [Key]
         public int Id { get; set; }
-        public int SportGameID { get; set; }
+        public int SportGameId { get; set; }
         public int TicketId { get; set; }
-        public double PairCoeficient { get; set; }
+        public double PairCoefficient { get; set; }
         public string SelectedValue { get; set; }
 
-        [ForeignKey("SportGameID")]
+        [ForeignKey("SportGameId")]
         public virtual SportGame SportGame { get; set; }
         [ForeignKey("TicketId")]
         public virtual Ticket Ticket { get; set; }

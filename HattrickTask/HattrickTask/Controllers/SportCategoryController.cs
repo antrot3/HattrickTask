@@ -18,7 +18,7 @@ namespace HattrickTask.Controllers
         // GET: SportCategories
         public ActionResult Index()
         {
-            return View(db.SportCategorys.ToList());
+            return View(db.sportCategories.ToList());
         }
 
         // GET: SportCategories/Details/5
@@ -28,7 +28,7 @@ namespace HattrickTask.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SportCategory sportCategory = db.SportCategorys.Find(id);
+            SportCategory sportCategory = db.sportCategories.Find(id);
             if (sportCategory == null)
             {
                 return HttpNotFound();
@@ -51,7 +51,7 @@ namespace HattrickTask.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.SportCategorys.Add(sportCategory);
+                db.sportCategories.Add(sportCategory);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -66,7 +66,7 @@ namespace HattrickTask.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SportCategory sportCategory = db.SportCategorys.Find(id);
+            var sportCategory = db.sportCategories.Find(id);
             if (sportCategory == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace HattrickTask.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SportCategory sportCategory = db.SportCategorys.Find(id);
+            var sportCategory = db.sportCategories.Find(id);
             if (sportCategory == null)
             {
                 return HttpNotFound();
@@ -110,19 +110,11 @@ namespace HattrickTask.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            SportCategory sportCategory = db.SportCategorys.Find(id);
-            db.SportCategorys.Remove(sportCategory);
+            var sportCategory = db.sportCategories.Find(id);
+            db.sportCategories.Remove(sportCategory);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        
     }
 }

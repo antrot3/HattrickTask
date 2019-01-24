@@ -9,8 +9,8 @@ namespace Hattrick.Service.Repositiories
 {
     public interface IProfileRepository
     {
-        Profile GetProfileById(int Id);
-        Profile GetFirstUser();
+        Profile getProfileById(int Id);
+        Profile getFirstUser();
     }
 
     public class ProfileRepository : IProfileRepository
@@ -21,11 +21,11 @@ namespace Hattrick.Service.Repositiories
             _context = new Models.HattrickContext();
         }
 
-        public Profile GetProfileById(int Id)
+        public Profile getProfileById(int Id)
         {
             return _context.Profiles.Where(x => x.Id == Id).First();
         }
-        public Profile GetFirstUser()
+        public Profile getFirstUser()
         {
             return _context.Profiles.First();
         }

@@ -48,7 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="DatabaseIntialization\HattrickDatabaseInitialization.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entities\Profile.cs" />

@@ -13,47 +13,40 @@ using Hattrick.Service.Models.Entities;
 using Hattrick.Service.Repositiories;
 using Newtonsoft.Json.Linq;
 
-namespace HettrickZadatak.Controllers
+namespace Hattrick.Service.Controllers
 {
     public class TicketsController : Controller
     {
         private HattrickContext db = new HattrickContext();
-        private readonly ITicketRepository _ticketRepository;
         private readonly ITicketToGameRepository _ticketToGameRepository;
 
         public TicketsController()
         {
-            _ticketRepository = new TicketRepository();
             _ticketToGameRepository = new TicketToGameRepository();
         }
         public ActionResult Create(string data)
         {
             var _context = new HattrickContext();
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var serializer = new JavaScriptSerializer();
             var obj = serializer.Deserialize<Dictionary<string, object>>(data);
             var profile = _context.Profiles.First();
-            if (profile.AccountBallance < double.Parse(obj["betValue"].ToString()))
+            if (profile.AccountBalance < double.Parse(obj["betValue"].ToString()))
                 throw new Exception("Not Enough money to bet");
-            else
-            {
-                profile.AccountBallance -= double.Parse(obj["betValue"].ToString());
-            }
+            profile.AccountBalance -= double.Parse(obj["betValue"].ToString());
             _context.SaveChanges();
-
-            var ticket = _ticketRepository.CreateTicket(double.Parse(obj["betValue"].ToString()), double.Parse(obj["koeficientValue"].ToString()), double.Parse(obj["expectedPayout"].ToString()));
+            var ticketReository = new TicketRepository();
+            var ticket = ticketReository.CreateTicket(double.Parse(obj["betValue"].ToString()), double.Parse(obj["koeficientValue"].ToString()), double.Parse(obj["expectedPayout"].ToString()));
             foreach (var test in (dynamic)obj["listOfSelectedPairs"])
             {
                 try
                 {
-
                     _ticketToGameRepository.CreateTicketToGame(int.Parse(test["GameID"]), ticket.Id, double.Parse(test["BetKoeficent"]), test["SelectedBet"]);
-
-                } catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     throw new Exception("Cannot add Pair to ticket");
                 }
             }
-
 
             return Redirect("/Tickets/Index");
         }
@@ -68,16 +61,16 @@ namespace HettrickZadatak.Controllers
             return View(tickets.ToList());
         }
 
-        public ActionResult GetResoult(string resoult, int id,double addToAccount)
+        public ActionResult GetResult(string resoult, int id, double addToAccount)
         {
-            var profile = db.Profiles.First();;
+            var profile = db.Profiles.First(); ;
             if (resoult == "Victory")
-                profile.AccountBallance += addToAccount;
+                profile.AccountBalance += addToAccount;
             var ticket = db.Tickets.Find(id);
             db.Tickets.Remove(ticket);
             db.SaveChanges();
             return Redirect("~/Tickets/Index");
         }
-      
+
     }
 }

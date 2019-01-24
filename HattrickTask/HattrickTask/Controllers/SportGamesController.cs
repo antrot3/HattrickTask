@@ -29,7 +29,7 @@ namespace HattrickTask.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SportGame sportGame = db.SportGames.Find(id);
+            var sportGame = db.SportGames.Find(id);
             if (sportGame == null)
             {
                 return HttpNotFound();
@@ -40,7 +40,7 @@ namespace HattrickTask.Controllers
         // GET: SportGames/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryId = new SelectList(db.SportCategorys, "Id", "CategoryName");
+            ViewBag.CategoryId = new SelectList(db.sportCategories, "Id", "CategoryName");
             return View();
         }
 
@@ -58,7 +58,7 @@ namespace HattrickTask.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryId = new SelectList(db.SportCategorys, "Id", "CategoryName", sportGame.CategoryId);
+            ViewBag.CategoryId = new SelectList(db.sportCategories, "Id", "CategoryName", sportGame.CategoryId);
             return View(sportGame);
         }
 
@@ -69,12 +69,12 @@ namespace HattrickTask.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SportGame sportGame = db.SportGames.Find(id);
+            var sportGame = db.SportGames.Find(id);
             if (sportGame == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoryId = new SelectList(db.SportCategorys, "Id", "CategoryName", sportGame.CategoryId);
+            ViewBag.CategoryId = new SelectList(db.sportCategories, "Id", "CategoryName", sportGame.CategoryId);
             return View(sportGame);
         }
 
@@ -91,7 +91,7 @@ namespace HattrickTask.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryId = new SelectList(db.SportCategorys, "Id", "CategoryName", sportGame.CategoryId);
+            ViewBag.CategoryId = new SelectList(db.sportCategories, "Id", "CategoryName", sportGame.CategoryId);
             return View(sportGame);
         }
 
@@ -115,19 +115,11 @@ namespace HattrickTask.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            SportGame sportGame = db.SportGames.Find(id);
+            var sportGame = db.SportGames.Find(id);
             db.SportGames.Remove(sportGame);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

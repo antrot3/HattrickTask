@@ -41,7 +41,7 @@
             @Html.DisplayFor(modelItem => item.ExpectedPayout)
         </td>
         <td>
-          <button id="getResoult" value="@item.Id;@item.ExpectedPayout">Get Resoult</button>
+          <button id="GetResult" value="@item.Id;@item.ExpectedPayout">Get Resoult</button>
            
         </td>
     </tr>
@@ -61,7 +61,7 @@
         <td>@pair.SportGame.Team1</td>
         <td>@pair.SportGame.Team2</td>
         <td>@pair.SelectedValue</td>
-        <td>@pair.PairCoeficient</td>
+        <td>@pair.PairCoefficient</td>
 
     </tr>
         }
@@ -73,7 +73,7 @@
 </table>
 
 <script>
-    $("#getResoult").on('click', function () {
+    $("#GetResult").on('click', function () {
         var random = Math.floor(Math.random() * 101);
         var resoult = "Fail";
         if (random <= 40) {
@@ -83,9 +83,9 @@
         else {
             alert("You lost :(");
         }
-        var ticketID = $("#getResoult").val().split(";")[0];
-        var addToAccount = $("#getResoult").val().split(";")[1];
-        location.href = '@Url.Action("GetResoult", "Tickets")?resoult=' + resoult + '&id=' + ticketID + '&addToAccount=' + addToAccount;
+        var ticketID = $("#GetResult").val().split(";")[0];
+        var addToAccount = $("#GetResult").val().split(";")[1];
+        location.href = '@Url.Action("GetResult", "Tickets")?resoult=' + resoult + '&id=' + ticketID + '&addToAccount=' + addToAccount;
 
     })
 </script>

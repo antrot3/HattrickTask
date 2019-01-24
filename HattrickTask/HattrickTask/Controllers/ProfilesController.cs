@@ -9,16 +9,16 @@ using System.Web.Mvc;
 using Hattrick.Service.Models;
 using Hattrick.Service.Models.Entities;
 
-namespace HettrickZadatak.Controllers
+namespace Hattrick.Service.Controllers
 {
     public class ProfilesController : Controller
     {
-        private HattrickContext db = new HattrickContext();
+        private HattrickContext _context = new HattrickContext();
 
         // GET: Profiles
         public ActionResult Index()
         {
-            return View(db.Profiles.ToList());
+            return View(_context.Profiles.ToList());
         }
 
         // GET: Profiles/Details/5
@@ -28,7 +28,7 @@ namespace HettrickZadatak.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Profile profile = db.Profiles.Find(id);
+            var profile = _context.Profiles.Find(id);
             if (profile == null)
             {
                 return HttpNotFound();
@@ -44,7 +44,7 @@ namespace HettrickZadatak.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Profile profile = db.Profiles.Find(id);
+            var profile = _context.Profiles.Find(id);
             if (profile == null)
             {
                 return HttpNotFound();
@@ -57,27 +57,18 @@ namespace HettrickZadatak.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,AccountBallance")] Profile profile)
+        public ActionResult Edit([Bind(Include = "Id,Name,AccountBalance")] Profile profile)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(profile).State = EntityState.Modified;
-                db.SaveChanges();
+                _context.Entry(profile).State = EntityState.Modified;
+                _context.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(profile);
         }
 
         // GET: Profiles/Delete/5
-       
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+      
     }
 }

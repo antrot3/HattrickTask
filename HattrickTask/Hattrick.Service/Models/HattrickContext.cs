@@ -11,7 +11,7 @@ using Hattrick.Service.Models.Entities;
     public interface IHattrickContext
     {
         IDbSet<Profile> Profiles { get; set; }
-        IDbSet<SportCategory> SportCategorys { get; set; }
+        IDbSet<SportCategory> sportCategories { get; set; }
         IDbSet<SportGame> SportGames { get; set; }
         IDbSet<Ticket> Tickets { get; set; }
         IDbSet<TicketToGame> TicketToGames { get; set; }
@@ -27,7 +27,7 @@ using Hattrick.Service.Models.Entities;
 
 
         public IDbSet<Profile> Profiles { get; set; }
-        public IDbSet<SportCategory> SportCategorys { get; set; }
+        public IDbSet<SportCategory> sportCategories { get; set; }
         public IDbSet<SportGame> SportGames { get; set; }
         public IDbSet<Ticket> Tickets { get; set; }
         public IDbSet<TicketToGame> TicketToGames { get; set; }

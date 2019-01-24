@@ -23,13 +23,13 @@ namespace HattrickTask.Controllers
         }
         public ActionResult Index()
         {
-            var _context = new HattrickContext();
-            
-            IEnumerable<Hattrick.Service.Models.Entities.SportCategory> sportCategorys = _sportCategoryRepository.GetAllSportCategory().ToList();
-            ViewBag.Categorys = sportCategorys;
-            Hattrick.Service.Models.Entities.Profile profile = _profileRepository.GetFirstUser();
+            var hattrickContext = new HattrickContext();
+
+            var sportCategories = _sportCategoryRepository.GetAllSportCategory().ToList();
+            ViewBag.Categorys = sportCategories;
+            var profile = _profileRepository.getFirstUser();
             ViewBag.Profile = profile;
-            IEnumerable<Hattrick.Service.Models.Entities.SportGame> sportGames = _sportGameRepository.GetAllSportGames().ToList();
+            var sportGames = _sportGameRepository.GetAllSportGames().ToList();
             return View(sportGames);
         }
 
