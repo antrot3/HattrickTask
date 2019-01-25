@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +20,20 @@ using Hattrick.Service.Models.Entities;
     }
      public class HattrickContext:DbContext,IHattrickContext
     {
+        public class Configuration : DbMigrationsConfiguration<Hattrick.Service.Models.HattrickContext>
+        {
+            public Configuration()
+            {
+                AutomaticMigrationsEnabled = true;
+            }
+        }
         public HattrickContext():base("name=HattricContextConnectionString")
         {
             System.Data.Entity.Database.SetInitializer(new Hattrick.Service.DatabaseIntialization.HattrickDatabaseInitialization());
             Database.Initialize(true);
+            
         }
+       
 
 
         public IDbSet<Profile> Profiles { get; set; }

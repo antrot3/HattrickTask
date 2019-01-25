@@ -11,6 +11,7 @@ using Hattrick.Service.Models;
 using Hattrick.Service.Models.Entities;
 
 using Hattrick.Service.Repositiories;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Hattrick.Service.Controllers
@@ -29,6 +30,7 @@ namespace Hattrick.Service.Controllers
             var _context = new HattrickContext();
             var serializer = new JavaScriptSerializer();
             var obj = serializer.Deserialize<Dictionary<string, object>>(data);
+
             var profile = _context.Profiles.First();
             if (profile.AccountBalance < double.Parse(obj["betValue"].ToString()))
                 throw new Exception("Not Enough money to bet");
@@ -36,21 +38,39 @@ namespace Hattrick.Service.Controllers
             _context.SaveChanges();
             var ticketReository = new TicketRepository();
             var ticket = ticketReository.CreateTicket(double.Parse(obj["betValue"].ToString()), double.Parse(obj["koeficientValue"].ToString()), double.Parse(obj["expectedPayout"].ToString()));
-            foreach (var test in (dynamic)obj["listOfSelectedPairs"])
+            var ticketItem = JsonConvert.DeserializeObject<TicketItem>(data);
+            foreach (var item in ticketItem.listOfSelectedPairs)
             {
                 try
                 {
-                    _ticketToGameRepository.CreateTicketToGame(int.Parse(test["GameID"]), ticket.Id, double.Parse(test["BetKoeficent"]), test["SelectedBet"]);
+                    _ticketToGameRepository.CreateTicketToGame(int.Parse(item.GameID), ticket.Id, double.Parse(item.BetKoeficent), item.SelectedBet);
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Cannot add Pair to ticket");
+                    throw new Exception("Cannot add Pair to ticket "+ex.ToString());
                 }
             }
 
             return Redirect("/Tickets/Index");
         }
 
+        public class TicketItem
+        {
+            public string betValue { get; set; }
+            public string koeficientValue { get; set; }
+            public string expectedPayout { get; set; }
+            public List<ListItem> listOfSelectedPairs { get; set; }
+        }
+        public class ListItem
+        {
+            public string SelectedBet { get; set; }
+            public string GameID { get; set; }
+            public string BetKoeficent { get; set; }
+            public string Team1 { get; set; }
+            public string Team2 { get; set; }
+            public string SpecialOffer { get; set; }
+            public string SpecialOfferFactor { get; set; }
+        }
 
         // GET: Tickets
         public ActionResult Index()
