@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Hattrick.Service.Models;
 using Hattrick.Service.Models.Entities;
+using Hattrick.Service.Repositiories;
 
 namespace HattrickTask.Controllers
 {
@@ -15,6 +16,13 @@ namespace HattrickTask.Controllers
     {
         private HattrickContext db = new HattrickContext();
 
+        private readonly ISportCategoryRepository _sportCategoryRepository;
+
+        public SportGamesController()
+        {
+            _sportCategoryRepository = new SportCategoryRepository();
+
+        }
         // GET: SportGames
         public ActionResult Index()
         {
@@ -40,7 +48,10 @@ namespace HattrickTask.Controllers
         // GET: SportGames/Create
         public ActionResult Create()
         {
+
             ViewBag.CategoryId = new SelectList(db.sportCategories, "Id", "CategoryName");
+            IEnumerable<SportCategory> sportCategorys= _sportCategoryRepository.GetAllSportCategory();
+            ViewBag.SportCategorys = sportCategorys.ToList();
             return View();
         }
 

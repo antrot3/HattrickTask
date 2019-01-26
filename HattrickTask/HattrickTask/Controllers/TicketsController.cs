@@ -18,7 +18,7 @@ namespace Hattrick.Service.Controllers
 {
     public class TicketsController : Controller
     {
-        private HattrickContext db = new HattrickContext();
+        private HattrickContext _context = new HattrickContext();
         private readonly ITicketToGameRepository _ticketToGameRepository;
 
         public TicketsController()
@@ -27,7 +27,6 @@ namespace Hattrick.Service.Controllers
         }
         public ActionResult Create(string data)
         {
-            var _context = new HattrickContext();
             var serializer = new JavaScriptSerializer();
             var obj = serializer.Deserialize<Dictionary<string, object>>(data);
 
@@ -75,20 +74,20 @@ namespace Hattrick.Service.Controllers
         // GET: Tickets
         public ActionResult Index()
         {
-            var tickets = db.Tickets.Include(t => t.Profile);
-            IEnumerable<Hattrick.Service.Models.Entities.TicketToGame> tickesToGame = db.TicketToGames.ToList();
+            var tickets = _context.Tickets.Include(t => t.Profile);
+            IEnumerable<Hattrick.Service.Models.Entities.TicketToGame> tickesToGame = _context.TicketToGames.ToList();
             ViewBag.ticketsToGame = tickesToGame;
             return View(tickets.ToList());
         }
 
         public ActionResult GetResult(string resoult, int id, double addToAccount)
         {
-            var profile = db.Profiles.First(); ;
+            var profile = _context.Profiles.First(); ;
             if (resoult == "Victory")
                 profile.AccountBalance += addToAccount;
-            var ticket = db.Tickets.Find(id);
-            db.Tickets.Remove(ticket);
-            db.SaveChanges();
+            var ticket = _context.Tickets.Find(id);
+            _context.Tickets.Remove(ticket);
+            _context.SaveChanges();
             return Redirect("~/Tickets/Index");
         }
 

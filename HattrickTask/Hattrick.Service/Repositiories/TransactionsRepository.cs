@@ -22,7 +22,7 @@ namespace Hattrick.Service.Repositiories
 
         public Transactions GetTransactionsById(int Id)
         {
-            return _context.Transactions.Where(x => x.Id == Id).First();
+            return _context.Transactions.First(x => x.Id == Id);
         }
     }
 }

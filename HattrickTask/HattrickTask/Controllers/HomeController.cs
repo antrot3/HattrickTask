@@ -13,6 +13,7 @@ namespace HattrickTask.Controllers
         private readonly ISportGameRepository _sportGameRepository;
         private readonly ISportCategoryRepository _sportCategoryRepository;
         private readonly IProfileRepository _profileRepository;
+        private HattrickContext _context = new HattrickContext();
 
 
         public HomeController()
@@ -23,14 +24,25 @@ namespace HattrickTask.Controllers
         }
         public ActionResult Index()
         {
-            var hattrickContext = new HattrickContext();
-
             var sportCategories = _sportCategoryRepository.GetAllSportCategory().ToList();
+            var sportCoeficients = GetCoeficients();
+            ViewBag.Coeficient = sportCoeficients;
             ViewBag.Categorys = sportCategories;
             var profile = _profileRepository.getFirstUser();
             ViewBag.Profile = profile;
             var sportGames = _sportGameRepository.GetAllSportGames().ToList();
             return View(sportGames);
+        }
+        public List<string> GetCoeficients()
+        {
+            List<string> coeficients = new List<string>();
+            coeficients.Add("1");
+            coeficients.Add("X");
+            coeficients.Add("2");
+            coeficients.Add("12");
+            coeficients.Add("1X");
+            coeficients.Add("X2");
+            return coeficients; 
         }
 
         public ActionResult About()

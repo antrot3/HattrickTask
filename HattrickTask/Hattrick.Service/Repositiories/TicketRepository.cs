@@ -19,7 +19,7 @@ namespace Hattrick.Service.Repositiories
 
         public Ticket GetTicketById(int Id)
         {
-            return _context.Tickets.Where(x => x.Id == Id).First();
+            return _context.Tickets.First(x => x.Id == Id);
         }
         public Ticket CreateTicket(double payment, double totalCoeficient,double expectedPayout)
         {

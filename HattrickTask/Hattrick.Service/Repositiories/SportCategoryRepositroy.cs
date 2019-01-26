@@ -24,7 +24,7 @@ namespace Hattrick.Service.Repositiories
 
         public SportCategory GetSportCategoryById(int Id)
         {
-            return _context.sportCategories.Where(x => x.Id == Id).First();
+            return _context.sportCategories.First(x => x.Id == Id);
         }
         public IEnumerable<SportCategory> GetAllSportCategory()
         {

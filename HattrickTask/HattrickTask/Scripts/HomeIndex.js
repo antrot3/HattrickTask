@@ -1,5 +1,4 @@
 ﻿var listOfObjects = [];
-
 $('.btn-success').on('click', function () {
     $("#" + this.id).toggleClass('btn-success btn-dannger');
     var arr = $(this).val().split(';');
@@ -104,6 +103,8 @@ $("#betValue").on('change', function () {
 });
 $("#submitButton").on('click', function () {
     /**/
+    console.log(window.location.hostname.toString());
+
     if ($("#betValue").val() > 0) {
 
         var data = {
@@ -114,7 +115,6 @@ $("#submitButton").on('click', function () {
         };
         var counter = 0;
         var hasSpecialOffer = false;
-        debugger
         listOfObjects.forEach(function (element) {
             if (element.SpecialOffer === "1")
                 hasSpecialOffer = true;
@@ -126,7 +126,7 @@ $("#submitButton").on('click', function () {
             alert("For Special Offers you need To have atlest 5 pairs with coeficient 1.1 or more");
         }
         else {
-            location.href = 'Tickets/Create?data=' + JSON.stringify(data);
+            location.href = "http://" + window.location.hostname + ":"+window.location.port+'/Tickets/Create?data=' + JSON.stringify(data);
         }
     }
     else {

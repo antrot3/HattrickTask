@@ -7,8 +7,8 @@
     <ProjectGuid>{3997BCD4-4FB5-4509-BC8B-7BFAB7D58DB9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Hettrick.Servic</RootNamespace>
-    <AssemblyName>Hettrick.Servic</AssemblyName>
+    <RootNamespace>Hattrick.Service</RootNamespace>
+    <AssemblyName>Hattrick.Service</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

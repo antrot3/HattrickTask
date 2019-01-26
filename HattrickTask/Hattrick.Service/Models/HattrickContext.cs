@@ -9,6 +9,13 @@ using Hattrick.Service.Models.Entities;
 
  namespace Hattrick.Service.Models
 {
+    public class Configuration : DbMigrationsConfiguration<Hattrick.Service.Models.HattrickContext>
+    {
+        public Configuration()
+        {
+            AutomaticMigrationsEnabled = true;
+        }
+    }
     public interface IHattrickContext
     {
         IDbSet<Profile> Profiles { get; set; }
@@ -20,13 +27,7 @@ using Hattrick.Service.Models.Entities;
     }
      public class HattrickContext:DbContext,IHattrickContext
     {
-        public class Configuration : DbMigrationsConfiguration<Hattrick.Service.Models.HattrickContext>
-        {
-            public Configuration()
-            {
-                AutomaticMigrationsEnabled = true;
-            }
-        }
+       
         public HattrickContext():base("name=HattricContextConnectionString")
         {
             System.Data.Entity.Database.SetInitializer(new Hattrick.Service.DatabaseIntialization.HattrickDatabaseInitialization());

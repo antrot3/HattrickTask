@@ -25,7 +25,7 @@ namespace Hattrick.Service.Repositiories
 
         public TicketToGame GetTicketToGameById(int Id)
         {
-            return _context.TicketToGames.Where(x => x.Id == Id).First();
+            return _context.TicketToGames.First(x => x.Id == Id);
         }
         public TicketToGame CreateTicketToGame(int SportGameId, int ticketId, double PairCoefficient, string selectedValue)
         {

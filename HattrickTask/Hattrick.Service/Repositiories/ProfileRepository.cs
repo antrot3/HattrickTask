@@ -23,7 +23,7 @@ namespace Hattrick.Service.Repositiories
 
         public Profile getProfileById(int Id)
         {
-            return _context.Profiles.Where(x => x.Id == Id).First();
+            return _context.Profiles.First(x => x.Id == Id);
         }
         public Profile getFirstUser()
         {
